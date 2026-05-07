@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page Blocked</title>
+    <style>
+        /* Exact layout from your source */
+        html { font-size: 14px; }
+        body { font-size: 100% !important; }
+        body {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 500px;
+            height: 254px;
+            margin: -151px 0px 0px -254px;
+            background: rgb(0, 50, 160);
+            text-align: center;
+            color: white;
+            font-size: 14px;
+            font-family: sans-serif;
+        }
+        h1 { margin-bottom: 50px; }
+        #block-title { font-size: large; color: inherit; }
+        #block-div { margin-bottom: 20px; }
+        #description { font-size: medium; color: inherit; }
+        #custom-description { font-size: small; color: inherit; }
+
+        /* THE UGLY BUTTON: Default browser styling */
+        #review-btn {
+            background-color: #efefef; /* Light gray */
+            color: black;
+            border: 2px outset #767676; /* That old 3D border look */
+            padding: 2px 8px; /* Small and thin */
+            font-size: 13px;
+            font-family: Arial, sans-serif;
+            cursor: pointer;
+            border-radius: 2px;
+        }
+        #review-btn:active {
+            border-style: inset; /* Flips the 3D look when clicked */
+        }
+    </style>
+</head>
+<body>
+    <h1 id="block-title"><div><br></div>This page has been blocked</h1>
+    <div id="block-div">
+        <p id="description">
+            The website you are attempting to reach has been blocked by an administrator.<br>
+            If you believe this was done in error, please request a review of the website.
+        </p>
+        <button id="review-btn">Request Site Review</button>
+    </div>
+    <div>
+        <p id="custom-description">
+            If you feel you&nbsp; have reached this message in error please submit a request to your teacher to have the page unblocked.&nbsp;
+        </p>
+        <div><br></div>
+        <div>Attleboro Public Schools, Office of Information Technology</div>
+        <p></p>
+    </div>
+
+    <script>
+        // The script that makes the button work
+        document.getElementById("review-btn").addEventListener("click", function() {
+            // Signal simulation
+            console.log("AristotleK12: Review request pushed.");
+            
+            // UI Change: Remove button and show text
+            this.remove();
+            const status = document.createElement("p");
+            status.innerHTML = "<b>Request Sent!</b>";
+            status.style.fontSize = "16px";
+            status.style.marginTop = "10px";
+            document.getElementById("block-div").appendChild(status);
+        });
+
+        // Lockdown script
+        document.onkeydown = function(e) {
+            e.preventDefault();
+            return false;
+        };
+    </script>
+</body>
+</html>
+
